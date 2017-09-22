@@ -39,30 +39,19 @@ void setup()
   author2 = loadImage("data/author2.jpg");  // load image from file author2.jpg in folder data *** replace that file with your pic of your own face
   }
   
-void draw() 
-  {
-  T.E(2, 3);
-  //println(T.E(4, 5));
-  //println(T.E(4, 7));
-  //println(T.E(2, 11));
-  //println(T.E(4, 11));
-  //println(T.E(2, 8));
-  //println(T.E(7, 12));
-  //println(T.E(9, 16));
-  //println(T.E(7, 16));
-  //println(T.E(11, 24));
-  //background(255);
-  //if(snapPic) beginRecord(PDF, "data/PICTURES/P"+nf(pictureCounter++,3)+".pdf"); 
-  //fill(0); 
-  //scribeHeader("Rossignac's 2017 Computational Aesthetics course at Georgia Tech -- Project 1: Rhythm fill-in", 0);
-  //scribeHeaderRight("Team: Jarek Rossignac & Jarek Rossignac");
-  //image(author1, width-author1.width/2-20,25,author1.width/2,author1.height/2); // show pictures of the team members: file data/author1.jpg
-  //image(author2, width-author1.width/2-20-author2.width/2-20,25,author2.width/2,author2.height/2); 
-  //T.showSheet();
-  //if(snapPic) {endRecord(); snapPic=false;}
-  //T.continueTune(); // if playing, continues
-  //fill(0); 
-  //scribeFooter("SAVE TO:  T=clipboard, S= file (\""+fileName+"\"). LOAD FROM: C=clipboard, L=from file (\""+fileName+"\"). SET FILENAME FROM: F=clipboard. DRAW: \'=staff. SNAP: ~=picture",1);
-  //scribeFooter("RECORDING: s=start, f=finish, c=continue, notes: 1...= and q...\'.  PLAY: z=start, x=stop. ERASE: :=all, ;=middle. CHANGE ,=change, .=middle, /=middle (students)",0);
+void draw() {
+  background(255);
+  if(snapPic) beginRecord(PDF, "data/PICTURES/P"+nf(pictureCounter++,3)+".pdf"); 
+  fill(0); 
+  scribeHeader("Rossignac's 2017 Computational Aesthetics course at Georgia Tech -- Project 1: Rhythm fill-in", 0);
+  scribeHeaderRight("Team: Jarek Rossignac & Jarek Rossignac");
+  image(author1, width-author1.width/2-20,25,author1.width/2,author1.height/2); // show pictures of the team members: file data/author1.jpg
+  image(author2, width-author1.width/2-20-author2.width/2-20,25,author2.width/2,author2.height/2); 
+  T.showSheet();
+  if(snapPic) {endRecord(); snapPic=false;}
+  T.continueTune(); // if playing, continues
+  fill(0); 
+  scribeFooter("SAVE TO:  T=clipboard, S= file (\""+fileName+"\"). LOAD FROM: C=clipboard, L=from file (\""+fileName+"\"). SET FILENAME FROM: F=clipboard. DRAW: \'=staff. SNAP: ~=picture",1);
+  scribeFooter("RECORDING: s=start, f=finish, c=continue, notes: 1...= and q...\'.  PLAY: z=start, x=stop. ERASE: :=all, ;=middle. CHANGE ,=change, .=middle, /=middle (students)",0);
   }
   

@@ -1,5 +1,8 @@
 // Class for a short melody. Supports several visualization, replay, animaiton, mouse or keyboard editing
 // Written by Jarek Rossignac on July 14, 2017
+import java.util.*;
+
+
 
 class TUNE
   {
@@ -90,9 +93,6 @@ class TUNE
     {
       
     }
-
-
-  import java.util.*;
 
   boolean[] E(int k, int n) {
     int ones = k;
