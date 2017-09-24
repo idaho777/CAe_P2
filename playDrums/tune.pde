@@ -87,61 +87,36 @@ class TUNE
           }
         }
     }
+    
 
-  //*********** REPLACE THIS METHOD BELOW WITH STUDENTS' FILL-IN HEURISTIC ***** 
+  //************ REPLACE THIS METHOD BELOW WITH STUDENTS' FILL-IN HEURISTIC *********************************************************************************************************** 
   void myFillIn() 
     {
-      for (int i= 16*4; i<n-16*4; i++) {
-        for (int j = 0; j<5; j++) {
-          
-          if (i < 2*16*4) {
-            /*   if(i<8*8*1.25){
-                 slot[i][j] = slot[i + 16*4*3][j];
-               }
-              else if (i<8*8*1.5 && i>=8*8*1.25) {
-                {slot[i][j] = slot[i - 16*4][j];}
-              }
-              else if (i<8*8*1.75 && i>=8*8*1.5) {
-                {slot[i][j] = slot[(i+16) + 16*4*3][j];}
-              } 
-              else if (i<8*8*2 && i>=8*8*1.75) {
-                {slot[i][j] = slot[(i-16) - 16*4][j];}
-              }           */
-              fillInRow2( i, j);
-              
-          }
-          else if (i < 3*16*4) {
-            fillInRow3();
-          }
-          else if (i <4*16*4) {
-            fillInRow4();
-          }  
-          
-        }
-      }
+      fillInRow2(1, 0, 4);
+      //fillInRow2(2, 0, 4);
+      //fillInRow2(3, 0, 4);
     }// end of myfillin()
     
 
     /*ABAB*/
-    void fillInRow2(int i, int j){
-       if(i<8*8*1.25){
-                 slot[i][j] = slot[i + 16*4*3][j];
-               }
-              else if (i<8*8*1.5 && i>=8*8*1.25) {
-                {slot[i][j] = slot[i - 16*4][j];}
-              }
-              else if (i<8*8*1.75 && i>=8*8*1.5) {
-                {slot[i][j] = slot[(i+16) + 16*4*3][j];}
-              } 
-              else if (i<8*8*2 && i>=8*8*1.75) {
-                {slot[i][j] = slot[(i-16) - 16*4][j];}
-              }       
+    void fillInRow2(int row, int beatARow, int beatBRow) {
+      int R = 16*4*(row);
+      int A = 16*4*(beatARow);
+      int B = 16*4*(beatBRow);
+      for (int i = 0; i < 16; i++) {
+        slot[(R + 16 * 0) + i] = slot[B + i];
+        slot[(R + 16 * 1) + i] = slot[A + i];
+        slot[(R + 16 * 2) + i] = slot[(B+16) + i];
+        slot[(R + 16 * 3) + i] = slot[(A+16) + i];
+      }
     }
     
-    void fillInRow3() {
+    void fillInRow3(int row, int beatARow, int beatBRow) {
+      
+      
     }
     
-    void fillInRow4() {
+    void fillInRow4(int row, int beatARow, int beatBRow) {
     }
     
 
@@ -256,7 +231,7 @@ class TUNE
         ellipse(lm+w*(s%64+0.5),(tm+((s/64)*barH+(4-j)+0.5)*h),h,h); 
         }
         }
-      stroke(100,100,255); strokeWeight(2); line(lm+w*((f/d)%64),tm+(((s/64)+1)*barH)*h,lm+w*((f/d)%64),tm+((s/64)*barH)*h);//TODO ADJUST THE HEIGHT
+      stroke(100,100,255); strokeWeight(10); line(lm+w*((f/d)%64),tm+(((s/64)+1)*barH)*h,lm+w*((f/d)%64),tm+((s/64)*barH)*h);//TODO ADJUST THE HEIGHT
       text("PLAYING (f="+nf(f,2,0)+")",10,45);
       f++; // advance frame counter
       if(s>=n-1) playing=false;  
@@ -328,15 +303,6 @@ class TUNE
       println();
       
     }
-    
-    
-    //for(int i=0; i<n; i++) {
-    //  if(i%64 == 0) println(); 
-    //  for(int j=0; j<5; j++) {
-    //    print(((slot[i][j]) ? "+" : "-"));
-    //  } 
-    //  println();
-    //}
   }
 
   String convertToString() 
