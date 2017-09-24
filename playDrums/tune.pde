@@ -93,8 +93,8 @@ class TUNE
   void myFillIn() 
     {
       fillInRow2(1, 0, 4);
-      //fillInRow2(2, 0, 4);
-      //fillInRow2(3, 0, 4);
+      fillInRow3(2, 0, 4);
+      fillInRow4(3, 0, 4);
     }// end of myfillin()
     
 
@@ -104,19 +104,62 @@ class TUNE
       int A = 16*4*(beatARow);
       int B = 16*4*(beatBRow);
       for (int i = 0; i < 16; i++) {
-        slot[(R + 16 * 0) + i] = slot[B + i];
-        slot[(R + 16 * 1) + i] = slot[A + i];
-        slot[(R + 16 * 2) + i] = slot[(B+16) + i];
-        slot[(R + 16 * 3) + i] = slot[(A+16) + i];
+        slot[(R + 16 * 0) + i] = slot[A + i];
+        slot[(R + 16 * 1) + i] = slot[(B+16) + i];
+        slot[(R + 16 * 2) + i] = slot[A + i];
+        slot[(R + 16 * 3) + i] = slot[(B+16) + i];
       }
     }
     
     void fillInRow3(int row, int beatARow, int beatBRow) {
+      int R = 16*4*(row);
+      int A = 16*4*(beatARow);
+      int B = 16*4*(beatBRow);
       
+      // Finds correspondences between beat A and beat B
+      boolean same[][] = new boolean[16*4][5];
       
+      for (int i = 0; i < 16*4; i++) {
+        for (int j = 0; j < 5; j++) {
+          same[i][j] = slot[A+i][j] && slot[B+i][j];
+          slot[R+i][j] = same[i][j];
+        }
+      }
     }
     
+    // makes a row two times faster
+    // Does not sound too good if too fast because processing doesn't play sound well.
+    boolean[][] twoTimes(int beatRow) {
+      int R = 16*4*(beatRow);
+      
+      boolean[][] fast = new boolean[16*4][5];
+      for (int i = 0; i < 16*2; ++i) {
+        fast[i]        = slot[R + (2*i)];
+        fast[i+(16*2)] = slot[R + (2*i)];
+      }
+     
+      return fast;
+    }
+    
+    
     void fillInRow4(int row, int beatARow, int beatBRow) {
+      int R = 16*4*(row);
+      int A = 16*4*(beatARow);
+      int B = 16*4*(beatBRow);
+      
+      // Finds correspondences between beat A and beat B
+      boolean same[][] = new boolean[16*4][5];
+      
+      for (int i = 0; i < 16*4; i++) {
+        for (int j = 0; j < 5; j++) {
+          same[i][j] = slot[A+i][j] && slot[B+i][j];
+          slot[R+i][j] = same[i][j];
+        }
+      }
+      
+      for (int i = 0; i < 16*4; i++) {
+        slot[R+i][1] = slot[B+i][1];
+      }
     }
     
 
