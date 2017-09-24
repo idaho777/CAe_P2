@@ -91,8 +91,59 @@ class TUNE
   //*********** REPLACE THIS METHOD BELOW WITH STUDENTS' FILL-IN HEURISTIC ***** 
   void myFillIn() 
     {
-      
+      for (int i= 16*4; i<n-16*4; i++) {
+        for (int j = 0; j<5; j++) {
+          
+          if (i < 2*16*4) {
+            /*   if(i<8*8*1.25){
+                 slot[i][j] = slot[i + 16*4*3][j];
+               }
+              else if (i<8*8*1.5 && i>=8*8*1.25) {
+                {slot[i][j] = slot[i - 16*4][j];}
+              }
+              else if (i<8*8*1.75 && i>=8*8*1.5) {
+                {slot[i][j] = slot[(i+16) + 16*4*3][j];}
+              } 
+              else if (i<8*8*2 && i>=8*8*1.75) {
+                {slot[i][j] = slot[(i-16) - 16*4][j];}
+              }           */
+              fillInRow2( i, j);
+              
+          }
+          else if (i < 3*16*4) {
+            fillInRow3();
+          }
+          else if (i <4*16*4) {
+            fillInRow4();
+          }  
+          
+        }
+      }
+    }// end of myfillin()
+    
+
+    /*ABAB*/
+    void fillInRow2(int i, int j){
+       if(i<8*8*1.25){
+                 slot[i][j] = slot[i + 16*4*3][j];
+               }
+              else if (i<8*8*1.5 && i>=8*8*1.25) {
+                {slot[i][j] = slot[i - 16*4][j];}
+              }
+              else if (i<8*8*1.75 && i>=8*8*1.5) {
+                {slot[i][j] = slot[(i+16) + 16*4*3][j];}
+              } 
+              else if (i<8*8*2 && i>=8*8*1.75) {
+                {slot[i][j] = slot[(i-16) - 16*4][j];}
+              }       
     }
+    
+    void fillInRow3() {
+    }
+    
+    void fillInRow4() {
+    }
+    
 
   boolean[] E(int k, int n) {
     int ones = k;

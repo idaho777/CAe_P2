@@ -19,7 +19,7 @@ void scribeFooter(String S, int i) {fill(0); text(S,10,height-10-i*20); noFill()
 
 
 // ********************************************************* FILE I/O
-String folder="data/Rhythms/", fileName = "practiceRhythm";
+String folder="data/Rhythms/", fileName = "rockToSwingRhythm";
 
 void saveTune(String fn) {
   String [] SS = new String[1];
