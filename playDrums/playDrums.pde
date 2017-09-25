@@ -35,8 +35,8 @@ void setup()
   T.reset();  //  T.create();
   loadTune(folder+fileName);
   T.printNotes();
-  author1 = loadImage("data/author1.jpg");  // load image from file author1.jpg in folder data *** replace that file with your pic of your own face
-  author2 = loadImage("data/author2.jpg");  // load image from file author2.jpg in folder data *** replace that file with your pic of your own face
+  author1 = loadImage("data/author2.png");  // load image from file author1.jpg in folder data *** replace that file with your pic of your own face
+  author2 = loadImage("data/author1.png");  // load image from file author2.jpg in folder data *** replace that file with your pic of your own face
   }
   
 void draw() {
@@ -44,7 +44,7 @@ void draw() {
   if(snapPic) beginRecord(PDF, "data/PICTURES/P"+nf(pictureCounter++,3)+".pdf"); 
   fill(0); 
   scribeHeader("Rossignac's 2017 Computational Aesthetics course at Georgia Tech -- Project 1: Rhythm fill-in", 0);
-  scribeHeaderRight("Team: Jarek Rossignac & Jarek Rossignac");
+  scribeHeaderRight("Team: Joonho Kim & Amy Zhuang");
   image(author1, width-author1.width/2-20,25,author1.width/2,author1.height/2); // show pictures of the team members: file data/author1.jpg
   image(author2, width-author1.width/2-20-author2.width/2-20,25,author2.width/2,author2.height/2); 
   T.showSheet();

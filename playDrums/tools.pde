@@ -44,7 +44,7 @@ public static String getClipboard()    // returns content of clipboard (if it co
        try 
          {
          if (t != null && t.isDataFlavorSupported(DataFlavor.stringFlavor)) 
-               {
+                {
                String text = (String)t.getTransferData(DataFlavor.stringFlavor);
                return text; 
                }
